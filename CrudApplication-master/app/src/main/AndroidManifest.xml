@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="ANTUNES, ROSSI E VIEIRA"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true"
+            android:label="ANTUNES, ROSSI E VIEIRA"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".AlterarActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CadastroActivity"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:exported="true"
+            android:name=".MainActivity">
+            <!-- Remova a categoria LAUNCHER da MainActivity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!-- Remova a categoria LAUNCHER -->
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
+            android:name=".CaptureAct"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme" />
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.crudapplication.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>
